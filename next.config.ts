@@ -1,9 +1,12 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
   output: "export",
   trailingSlash: true,
-  assetPrefix: "./",
+  basePath: isProd ? "/dapp-portfolio" : "",
+  assetPrefix: isProd ? "/dapp-portfolio/" : "",
   images: {
     unoptimized: true,
   },
