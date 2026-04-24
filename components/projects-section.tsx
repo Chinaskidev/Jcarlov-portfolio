@@ -1,19 +1,33 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Github } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export function ProjectsSection() {
-  const sectionRef = useScrollAnimation()
+  const sectionRef = useScrollAnimation();
 
   const projects = [
     {
       title: "SKINNER",
       description:
         "Software de gestión administrativa inteligente que combina IA avanzada con gestión de talento humano. Optimiza procesos administrativos y fortalece la infraestructura tecnológica de las organizaciones.",
-      tags: ["Python", "Transformer", "FastAPI", "Docker", "Nest.js", "Next.js", "Prisma", "Tailwind.css"],
+      tags: [
+        "Python",
+        "Transformer",
+        "FastAPI",
+        "Docker",
+        "Nest.js",
+        "Next.js",
+        "Prisma",
+        "Tailwind.css",
+      ],
       image: "skinner-logo.png",
       imageContain: true,
       github: "https://github.com/Skinner-SAS-de-CV",
@@ -26,13 +40,19 @@ export function ProjectsSection() {
       tags: ["Python", "FastAPI", "MLflow", "Docker", "XGBoost"],
       image: "petshop.jpg",
       github: "https://github.com/yultic",
-      demo: "https://petshop-dashboard-lilac.vercel.app/",
+      demo: "https://github.com/yultic/Petshop-dashboard",
     },
     {
       title: "ETL Climático Automatizado para El Salvador",
       description:
         "Pipeline ETL completo de datos meteorológicos que automatiza la extracción, transformación y carga de información del clima para El Salvador usando Apache Airflow, Docker y Google Cloud.",
-      tags: ["Apache Airflow", "Python", "Google Cloud Storage", "PostgreSQL", "OpenWeatherMap API"],
+      tags: [
+        "Apache Airflow",
+        "Python",
+        "Google Cloud Storage",
+        "PostgreSQL",
+        "OpenWeatherMap API",
+      ],
       image: "lluvias.jpg",
       github: "https://github.com/Chinaskidev/ETL-Clima-ElSalvador",
       demo: "https://github.com/Chinaskidev/ETL-Clima-ElSalvador",
@@ -48,21 +68,32 @@ export function ProjectsSection() {
     },
     {
       title: "Dapp-SivarETH",
-      description: "Es un proyecto que integra contratos inteligentes Ethereum con una interfaz web, para crear y gestionar NFTs (Tokens No Fungibles) y una Integración con Wagmi - Librería web3 para conectar wallets.",
+      description:
+        "Es un proyecto que integra contratos inteligentes Ethereum con una interfaz web, para crear y gestionar NFTs (Tokens No Fungibles) y una Integración con Wagmi - Librería web3 para conectar wallets.",
       tags: ["Next.js", "TypeScript", "Solidity", "IPFS"],
       image: "sivar.png",
       github: "https://github.com/Chinaskidev/Sivar-ETH",
       demo: "https://github.com/Chinaskidev/Sivar-ETH",
     },
     {
-      title: "Sitio web profesional y moderno",
-      description: "Plataforma web moderna enfocada en digitalizar y posicionar un negocio de apicultura.Permite presentar información institucional, catálogo de productos y servicios, con una arquitectura frontend limpia y orientada a escalabilidad",
+      title: "Raymapu Web",
+      description:
+        "Plataforma web moderna enfocada en digitalizar y posicionar un negocio de apicultura.Permite presentar información institucional, catálogo de productos y servicios, con una arquitectura frontend limpia y orientada a escalabilidad",
       tags: ["TypeScript", "Tailwind CSS", "shadcn/ui", "ESLint"],
       image: "raymapu2.png",
       github: "https://github.com/yultic/Raymapu-web",
-      demo: "https://raymapu-web.vercel.app/",
+      demo: "https://raymapu.cl/",
     },
-  ]
+    {
+      title: "Your Mindz",
+      description:
+        "Aplicación web que permite a los clientes contratar y agendar sesiones de bienestar mental de forma autónoma: seleccionan el tipo de sesión, realizan el pago y reciben un enlace de confirmación con su cita, sin intermediarios.",
+      tags: ["TypeScript", "Tailwind CSS", "shadcn/ui", "ESLint"],
+      image: "LOGO_2.png",
+      github: "https://github.com/yultic/your-mindz",
+      demo: "https://your-mindz-web.vercel.app/",
+    },
+  ];
 
   return (
     <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 relative">
@@ -79,8 +110,8 @@ export function ProjectsSection() {
 
           <div className="space-y-12">
             {projects.map((project, index) => {
-              const isFeature = index < 3
-              const isReversed = index % 2 === 1
+              const isFeature = index < 3;
+              const isReversed = index % 2 === 1;
 
               if (isFeature) {
                 return (
@@ -89,22 +120,30 @@ export function ProjectsSection() {
                     className={`animate-on-scroll stagger-${(index % 3) + 1} grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}
                   >
                     {/* Image */}
-                    <div className={`relative overflow-hidden rounded-xl bg-muted group ${isReversed ? "lg:order-2" : ""}`}>
+                    <div
+                      className={`relative overflow-hidden rounded-xl bg-muted group ${isReversed ? "lg:order-2" : ""}`}
+                    >
                       <div className="absolute inset-0 bg-gradient-to-t from-gold/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                       <img
                         src={project.image || "placeholder.svg"}
                         alt={project.title}
                         loading="lazy"
                         className={`w-full aspect-video group-hover:scale-105 transition-transform duration-700 ${
-                          project.imageContain ? "object-contain p-6" : "object-cover"
+                          project.imageContain
+                            ? "object-contain p-6"
+                            : "object-cover"
                         }`}
                       />
                     </div>
 
                     {/* Content */}
                     <div className="space-y-5">
-                      <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">{project.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                      <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag, tagIndex) => (
                           <span
@@ -116,14 +155,31 @@ export function ProjectsSection() {
                         ))}
                       </div>
                       <div className="flex gap-3 pt-2">
-                        <Button variant="outline" size="sm" className="bg-transparent border-gold/30 hover:border-gold/60" asChild>
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="bg-transparent border-gold/30 hover:border-gold/60"
+                          asChild
+                        >
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <Github className="h-4 w-4 mr-2" />
                             Código
                           </a>
                         </Button>
-                        <Button size="sm" className="bg-primary text-primary-foreground" asChild>
-                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <Button
+                          size="sm"
+                          className="bg-primary text-primary-foreground"
+                          asChild
+                        >
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             <ExternalLink className="h-4 w-4 mr-2" />
                             Demo
                           </a>
@@ -131,10 +187,10 @@ export function ProjectsSection() {
                       </div>
                     </div>
                   </div>
-                )
+                );
               }
 
-              return null
+              return null;
             })}
 
             {/* Smaller projects in grid */}
@@ -156,8 +212,12 @@ export function ProjectsSection() {
                     </div>
                   </CardHeader>
                   <CardContent className="p-6 space-y-3">
-                    <h3 className="font-display text-xl font-semibold tracking-tight">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{project.description}</p>
+                    <h3 className="font-display text-xl font-semibold tracking-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, tagIndex) => (
                         <span
@@ -170,14 +230,27 @@ export function ProjectsSection() {
                     </div>
                   </CardContent>
                   <CardFooter className="p-6 pt-0 flex gap-2">
-                    <Button variant="outline" size="sm" className="flex-1 bg-transparent border-gold/30 hover:border-gold/60" asChild>
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex-1 bg-transparent border-gold/30 hover:border-gold/60"
+                      asChild
+                    >
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <Github className="h-4 w-4 mr-2" />
                         Código
                       </a>
                     </Button>
                     <Button size="sm" className="flex-1" asChild>
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Demo
                       </a>
@@ -190,5 +263,5 @@ export function ProjectsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
