@@ -1,0 +1,380 @@
+/* ============================================
+   terminal.css — Terminal Portfolio styles
+   Scoped under .term-root so it never leaks into the visual portfolio.
+   ============================================ */
+
+.term-root {
+  --bg: #272822;
+  --fg: #f8f8f2;
+  --comment: #75715e;
+  --red: #f92672;
+  --orange: #fd971f;
+  --yellow: #e6db74;
+  --green: #a6e22e;
+  --cyan: #66d9ef;
+  --purple: #ae81ff;
+  --selection: #49483e;
+  --header-bg: #1e1f1c;
+  --border: #3e3d32;
+  --glow: none;
+  --term-font: var(--font-terminal), ui-monospace, "Cascadia Code", "Fira Code",
+    "SF Mono", "Monaco", "Menlo", "Consolas", monospace;
+
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: #000;
+  color: var(--fg);
+  font-family: var(--term-font);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+.term-root *,
+.term-root *::before,
+.term-root *::after {
+  box-sizing: border-box;
+}
+
+.term-root ::selection {
+  background: var(--selection);
+  color: var(--fg);
+}
+
+/* ── Boot Screen ── */
+.term-root #boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #0a0a0a;
+  color: #a0a0a0;
+  font-family: var(--term-font);
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.term-root #boot-output {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.term-root #boot-screen .boot-highlight {
+  color: #00ff41;
+}
+.term-root #boot-screen .boot-ok {
+  color: #a6e22e;
+}
+.term-root #boot-screen .boot-warn {
+  color: #fd971f;
+}
+.term-root #boot-screen.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.term-root #boot-screen.hidden {
+  display: none;
+}
+
+/* ── Terminal ── */
+.term-root #terminal {
+  display: none;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--bg);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.term-root #terminal.visible {
+  display: flex;
+  opacity: 1;
+}
+
+/* Header bar */
+.term-root #terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  -webkit-user-select: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+.term-root .dots {
+  display: flex;
+  gap: 7px;
+}
+.term-root .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.term-root .dot.r {
+  background: #ff5f56;
+}
+.term-root .dot.y {
+  background: #ffbd2e;
+}
+.term-root .dot.g {
+  background: #27c93f;
+}
+.term-root #header-title {
+  font-size: 12px;
+  color: var(--comment);
+  flex: 1;
+  text-align: center;
+  margin-right: 55px;
+}
+
+/* Terminal body */
+.term-root #terminal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  cursor: text;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.term-root #terminal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.term-root #terminal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.term-root #terminal-body::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* Output */
+.term-root #output {
+  padding-bottom: 4px;
+}
+.term-root .output-block {
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-bottom: 6px;
+  text-shadow: var(--glow);
+}
+.term-root .history-line {
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-shadow: var(--glow);
+}
+
+/* Input line */
+.term-root #input-line {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+  text-shadow: var(--glow);
+}
+.term-root #prompt {
+  white-space: nowrap;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.term-root .prompt-user {
+  color: var(--green);
+  font-weight: 700;
+}
+.term-root .prompt-at {
+  color: var(--comment);
+}
+.term-root .prompt-host {
+  color: var(--cyan);
+  font-weight: 700;
+}
+.term-root .prompt-colon {
+  color: var(--fg);
+}
+.term-root .prompt-path {
+  color: var(--orange);
+}
+.term-root .prompt-dollar {
+  color: var(--fg);
+  margin-left: 1px;
+}
+
+.term-root #input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.term-root #cmd-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--fg);
+  font: inherit;
+  font-size: inherit;
+  caret-color: var(--green);
+  text-shadow: var(--glow);
+}
+.term-root #autocomplete-hint {
+  position: absolute;
+  left: 0;
+  color: var(--comment);
+  opacity: 0.5;
+  pointer-events: none;
+  font: inherit;
+}
+
+/* ── Color utility classes ── */
+.term-root .tc-red {
+  color: var(--red);
+}
+.term-root .tc-orange {
+  color: var(--orange);
+}
+.term-root .tc-yellow {
+  color: var(--yellow);
+}
+.term-root .tc-green {
+  color: var(--green);
+}
+.term-root .tc-cyan {
+  color: var(--cyan);
+}
+.term-root .tc-purple {
+  color: var(--purple);
+}
+.term-root .tc-comment {
+  color: var(--comment);
+}
+.term-root .tc-fg {
+  color: var(--fg);
+}
+.term-root .b,
+.term-root .tc-bold {
+  font-weight: 700;
+}
+
+/* Color block backgrounds for neofetch */
+.term-root .tc-bg-red {
+  background: var(--red);
+}
+.term-root .tc-bg-orange {
+  background: var(--orange);
+}
+.term-root .tc-bg-yellow {
+  background: var(--yellow);
+}
+.term-root .tc-bg-green {
+  background: var(--green);
+}
+.term-root .tc-bg-cyan {
+  background: var(--cyan);
+}
+.term-root .tc-bg-purple {
+  background: var(--purple);
+}
+.term-root .tc-bg-comment {
+  background: var(--comment);
+}
+.term-root .tc-bg-fg {
+  background: var(--fg);
+}
+
+/* ── Scanlines ── */
+.term-root #scanlines {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.02;
+}
+
+/* ── Exit overlay ── */
+.term-root #exit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #000;
+  color: var(--comment);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--term-font);
+  font-size: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.term-root #exit-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.term-root #exit-overlay button {
+  margin-top: 20px;
+  padding: 8px 24px;
+  background: transparent;
+  border: 1px solid var(--comment);
+  color: var(--fg);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.term-root #exit-overlay button:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ── GUI bridge link ── */
+.term-root #gui-link {
+  position: fixed;
+  top: 10px;
+  right: 16px;
+  z-index: 110;
+  font-size: 11px;
+  color: var(--comment);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: var(--term-font);
+  transition: border-color 0.2s, color 0.2s;
+}
+.term-root #gui-link:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .term-root {
+    font-size: 12px;
+  }
+  .term-root #terminal-body {
+    padding: 10px;
+  }
+  .term-root #terminal-header {
+    padding: 8px 12px;
+  }
+  .term-root #header-title {
+    display: none;
+  }
+  .term-root .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
