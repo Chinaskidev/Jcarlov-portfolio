@@ -127,7 +127,7 @@ COMMANDS.whoami = function (_args, term) {
   term.print(`
 <span class="tc-cyan b">╔═══════════════════════════════════════════╗</span>
 <span class="tc-cyan b">║</span>  <span class="tc-green b">Juan Carlos Vásquez</span>                     <span class="tc-cyan b">║</span>
-<span class="tc-cyan b">║</span>  <span class="tc-comment">Software Architect / AI Product Engineer</span> <span class="tc-cyan b">║</span>
+<span class="tc-cyan b">║</span>  <span class="tc-comment">FullStack Developer / AI Product Engineer</span> <span class="tc-cyan b">║</span>
 <span class="tc-cyan b">║</span>  <span class="tc-comment">Founder @ Yultic.dev</span>                     <span class="tc-cyan b">║</span>
 <span class="tc-cyan b">╚═══════════════════════════════════════════╝</span>
 
@@ -324,7 +324,7 @@ function runNeofetch(term: Terminal) {
     `<span class="tc-yellow">Shell</span>     Vanilla JS`,
     `<span class="tc-yellow">Terminal</span>   web-terminal`,
     `<span class="tc-yellow">Lang</span>      Python, TypeScript`,
-    `<span class="tc-yellow">Role</span>      Software Architect`,
+    `<span class="tc-yellow">Role</span>      Fullstack`,
   ]
   let out = "\n"
   const maxLines = Math.max(art.length, info.length)
@@ -351,7 +351,7 @@ export function showWelcome(term: Terminal) {
 <span class="tc-green b"> ╚════╝  ╚═════╝  ╚═══╝</span>
 
   <span class="tc-cyan b">Juan Carlos Vásquez</span>
-  <span class="tc-comment">Software Architect / AI Product Engineer & Founder</span>
+  <span class="tc-comment">Fullstack / AI Product Engineer & Founder</span>
 
   Escribe <span class="tc-yellow">help</span> para ver los comandos disponibles.
   Escribe <span class="tc-yellow">cat README.md</span> para empezar.

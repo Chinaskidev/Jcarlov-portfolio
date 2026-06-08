@@ -80,7 +80,7 @@ export function startTerminal(options: TerminalOptions = {}): () => void {
  ╚════╝  ╚═════╝  ╚═══╝</span>
 
  <span style="color:#F8F8F2">Juan Carlos Vásquez</span>
- <span style="color:#75715E">Software Architect / AI Product Engineer</span>
+ <span style="color:#75715E">Fullstack / AI Product Engineer</span>
  <span style="color:#75715E">Portfolio OS v2.0</span>`
 
   function initTerminal() {
