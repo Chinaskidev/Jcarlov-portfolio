@@ -24,10 +24,39 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 })
 
+// URL absoluta del sitio en GitHub Pages (incluye basePath). Los crawlers y
+// link-previews necesitan URLs absolutas: no resuelven rutas relativas ni el basePath.
+const SITE_URL = "https://chinaskidev.github.io/Jcarlov-portfolio"
+const OG_IMAGE = `${SITE_URL}/og-image.png`
+const OG_DESCRIPTION = "Desarrollo de software, A.I. Portafolio en formato terminal."
+
 export const metadata: Metadata = {
-  title: "Portfolio Profesional",
-  description: "Desarrollo de software",
-  generator: "yultic.v.0",
+  metadataBase: new URL(SITE_URL),
+  title: "Juan Carlos Vasquez - Portafolio",
+  description: "Desarrollo de software y A.I.",
+  generator: "yultic.v.1.0.0",
+  openGraph: {
+    type: "website",
+    locale: "es_ES",
+    url: SITE_URL,
+    siteName: "Juan Carlos Vásquez",
+    title: "Juan Carlos Vásquez — Portafolio",
+    description: OG_DESCRIPTION,
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Juan Carlos Vásquez — Portafolio (terminal Monokai)",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Juan Carlos Vásquez — Portafolio",
+    description: OG_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
 }
 
 export default function RootLayout({

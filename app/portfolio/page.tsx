@@ -7,15 +7,21 @@ import { Footer } from "@/components/footer"
 
 export default function Portfolio() {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      {/* /portfolio se muestra siempre en modo oscuro (look minimalista) */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.classList.add('dark')`,
+        }}
+      />
       <Navbar />
-      <main>
+      <main className="max-w-3xl mx-auto px-6">
         <HeroSection />
         <SkillsSection />
         <ProjectsSection />
         <ExperienceSection />
+        <Footer />
       </main>
-      <Footer />
-    </div>
+    </>
   )
 }

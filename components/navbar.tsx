@@ -2,26 +2,19 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
+import { Github, Menu, X } from "lucide-react"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const hasWalletConnect = Boolean(process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const onScroll = () => setIsScrolled(window.scrollY > 20)
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   const navItems = [
-    { label: "Inicio", href: "/" },
-    { label: "Habilidades", href: "#skills" },
     { label: "Proyectos", href: "#projects" },
     { label: "Experiencia", href: "#experience" },
     { label: "Contacto", href: "#contact" },
@@ -29,87 +22,59 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-background/70 backdrop-blur-xl border-b border-gold/10 shadow-sm"
-          : "bg-transparent"
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
+        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border/50" : ""
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[72px]">
-          <Link href="/" className="font-display text-2xl tracking-tight text-foreground">
-            <span className="text-primary">jcarlov</span>
-            <span className="text-muted-foreground font-light">.Eth</span>
-          </Link>
+      <div className="max-w-3xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link href="/" className="text-sm font-medium tracking-tight hover:text-muted-foreground transition-colors">
+          Juan Carlos Vásquez
+        </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-10">
-            {navItems.map((item) => {
-              const linkClass =
-                "editorial-link text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors uppercase"
-              return item.href.startsWith("#") ? (
-                <a key={item.label} href={item.href} className={linkClass}>
-                  {item.label}
-                </a>
-              ) : (
-                <Link key={item.label} href={item.href} className={linkClass}>
-                  {item.label}
-                </Link>
-              )
-            })}
-            <ThemeToggle />
-            {hasWalletConnect ? (
-              <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} />
-            ) : null}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+        <div className="hidden sm:flex items-center gap-6 text-sm">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href="https://github.com/Chinaskidev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="text-muted-foreground hover:text-foreground transition-colors"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            <Github className="h-4 w-4" />
+          </a>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-6 border-t border-gold/10">
-            <div className="flex flex-col gap-5">
-              {navItems.map((item) => {
-                const linkClass =
-                  "editorial-link text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors uppercase w-fit"
-                return item.href.startsWith("#") ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className={linkClass}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={linkClass}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                )
-              })}
-              <div className="flex justify-end">
-                <ThemeToggle />
-              </div>
-              {hasWalletConnect ? (
-                <ConnectButton accountStatus="avatar" chainStatus="icon" showBalance={false} />
-              ) : null}
-            </div>
-          </div>
-        )}
+        <button
+          className="sm:hidden text-foreground"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Menú"
+        >
+          {isOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
+
+      {isOpen && (
+        <div className="sm:hidden border-b border-border/50 bg-background/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4 text-sm">
+          {navItems.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   )
 }

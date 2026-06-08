@@ -23,7 +23,7 @@ export const FILE_SYSTEM: DirNode = {
   Bienvenido al portafolio de <span class="tc-green b">Juan Carlos Vásquez</span>
 <span class="tc-cyan b">══════════════════════════════════════════</span>
 
-  <span class="tc-comment">Software Architect / AI Product Engineer & Founder</span>
+  <span class="tc-comment">Fullstack / AI Product Engineer & Founder</span>
   Construyo productos en la intersección de <span class="tc-cyan">IA</span>, <span class="tc-cyan">datos</span> y <span class="tc-cyan">Web3</span>.
 
   <span class="tc-purple b">─── Cómo navegar ───</span>
@@ -55,7 +55,7 @@ export const FILE_SYSTEM: DirNode = {
 `<div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap;white-space:normal;max-width:780px"><img src="yo.jpeg" alt="Juan Carlos Vásquez" style="width:150px;height:150px;object-fit:cover;border:2px solid var(--green);border-radius:8px;flex-shrink:0" /><div style="white-space:pre-wrap;flex:1;min-width:240px"><span class="tc-green b">👤 Sobre Mí</span>
 
 Hola, soy <span class="tc-green b">Juan Carlos Vásquez</span>
-<span class="tc-comment">Software Architect / AI Product Engineer & Founder</span>
+<span class="tc-comment">Fullstack / AI Product Engineer & Founder</span>
 
 Aunque solo llevo tres años inmerso de lleno en el
 desarrollo full-time, mi trayectoria se ha centrado
@@ -374,11 +374,11 @@ al Talento Humano.</div></div>
                   type: "file", size: "2.2K", modified: "Jun  7 2026", content:
 `<span class="tc-cyan b">┌─────────────────────────────────────────┐</span>
 <span class="tc-cyan b">│</span>  <span class="tc-purple b">Yultic.dev</span>                               <span class="tc-cyan b">│</span>
-<span class="tc-cyan b">│</span>  <span class="tc-green">Founder & Software Architect</span>             <span class="tc-cyan b">│</span>
+<span class="tc-cyan b">│</span>  <span class="tc-green">Founder & Fullstack</span>                      <span class="tc-cyan b">│</span>
 <span class="tc-cyan b">│</span>  <span class="tc-comment">2026 — Presente</span>                          <span class="tc-cyan b">│</span>
 <span class="tc-cyan b">└─────────────────────────────────────────┘</span>
 
-  <span class="tc-comment">Fundé Yultic: una firma de IA que implementa</span>
+  <span class="tc-comment">Fundé Yultic: una Startup de IA que implementa</span>
   <span class="tc-comment">soluciones reales en la operación de negocios.</span>
 
   Como <span class="tc-green b">fundador y arquitecto</span>, llevo cada producto
