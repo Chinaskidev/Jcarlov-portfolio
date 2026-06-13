@@ -66,5 +66,8 @@ No es urgente; es un backlog para ir picando cuando haya tiempo.
       (hoy el binario no está) y opcionalmente agregar lint al workflow.
 - [ ] Tests básicos del parser de comandos / resolución de rutas (`filesystem.ts`).
 - [ ] Analytics: registrar qué comandos usa la gente (insights de UX).
-- [ ] Si el Web3 sigue en pausa, evaluar quitar dependencias dormidas para aligerar
-      el bundle (RainbowKit / Wagmi / Viem).
+- [x] **Quitar dependencias Web3 dormidas para aligerar el bundle.** **Resuelto:** se
+      eliminaron `@rainbow-me/rainbowkit`, `wagmi`, `viem` y `@tanstack/react-query` del
+      `package.json`, se borró `components/web3-provider.tsx` y se desenvolvió el provider
+      en `app/layout.tsx` (−535 paquetes). El Web3 sobrevive solo como contenido
+      (descripciones de proyectos y texto de skills). Re-agregar las deps si se reactiva.

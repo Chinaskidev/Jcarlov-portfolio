@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display, DM_Sans, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { Web3Provider } from "@/components/web3-provider"
 import "./globals.css"
 
 const playfair = Playfair_Display({
@@ -74,9 +73,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${playfair.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans antialiased grain-overlay`}>
-        <Web3Provider>
-          {children}
-        </Web3Provider>
+        {children}
         <Analytics />
       </body>
     </html>
