@@ -147,7 +147,7 @@ export function ProjectsSection() {
             >
               <div className="aspect-video overflow-hidden bg-muted">
                 <img
-                  src={project.image}
+                  src={`portfolio/${project.image}`}
                   alt={project.title}
                   loading="lazy"
                   onError={(e) => {

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Github, Menu, X } from "lucide-react"
+import { Github, Menu, X, SquareTerminal } from "lucide-react"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -50,6 +50,14 @@ export function Navbar() {
           >
             <Github className="h-4 w-4" />
           </a>
+          <Link
+            href="/terminal"
+            aria-label="Ver versión terminal"
+            title="Modo terminal"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <SquareTerminal className="h-4 w-4" />
+          </Link>
         </div>
 
         <button
@@ -73,6 +81,14 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
+          <Link
+            href="/terminal"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <SquareTerminal className="h-4 w-4" />
+            Modo terminal
+          </Link>
         </div>
       )}
     </nav>

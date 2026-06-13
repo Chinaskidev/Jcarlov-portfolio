@@ -7,6 +7,13 @@ No es urgente; es un backlog para ir picando cuando haya tiempo.
 
 ## 🔧 Pendientes / decisiones abiertas
 
+- [x] **Jerarquía terminal vs. visual (profesionalismo).** **Resuelto:** se invirtió la
+      jerarquía. La **home `/` ahora es la versión visual** (puerta principal, accesible a
+      reclutadores y clientes no-técnicos) y la terminal pasó a **`/terminal`** como "modo"
+      secundario. Puentes: botón `[ modo visual ]` de la terminal → `/`; icono/enlace
+      "modo terminal" en el navbar → `/terminal`. Imágenes del portfolio: ahora se
+      referencian con prefijo `portfolio/` (ver regla de assets en `CLAUDE.md`).
+
 - [x] **Paleta de `/portfolio` (versión visual):** ~~la terminal ya usa Monokai, pero
       la vista visual sigue con el dorado original.~~ **Resuelto:** se alineó al verde
       Monokai (`#A6E22E` → `oklch(0.85 0.205 128)`). Se giraron los tokens `--gold`,

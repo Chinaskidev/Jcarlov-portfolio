@@ -4,7 +4,7 @@ export function HeroSection() {
   return (
     <section id="home" className="pt-32 pb-16">
       <img
-        src="yo.jpeg"
+        src="portfolio/yo.jpeg"
         alt="Juan Carlos Vásquez"
         className="w-28 h-28 rounded-full object-cover border border-border mb-8"
       />
