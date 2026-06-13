@@ -56,6 +56,8 @@ No es urgente; es un backlog para ir picando cuando haya tiempo.
       del diseño: visor de blog estilo CLI en `/posts`).
 - [ ] Agregar screenshots/GIFs a los proyectos en la versión visual.
 - [ ] Revisar/actualizar fechas y estados de proyectos cuando cambien.
+- [ ] **Regenerar `public/og-image.png`:** hoy es un banner estilo terminal, pero la home
+      ya es la versión visual. Crear una imagen acorde al nuevo look (visual/minimalista).
 
 ---
 
