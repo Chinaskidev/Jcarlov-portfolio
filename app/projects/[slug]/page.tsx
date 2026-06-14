@@ -122,13 +122,19 @@ export default async function ProjectPage({
 
         <div className="mt-10 aspect-video overflow-hidden rounded-xl border border-border/60 bg-muted">
           <ProjectImage
-            src={`portfolio/${project.image}`}
+            src={`../../portfolio/${project.image}`}
             alt={project.title}
             className={`h-full w-full ${
               project.imageContain ? "object-contain p-8" : "object-cover"
             }`}
           />
         </div>
+
+        {caseStudy.lead && (
+          <p className="mt-10 border-l-2 border-border pl-5 italic text-muted-foreground leading-relaxed">
+            {caseStudy.lead}
+          </p>
+        )}
 
         <Section title="El problema">
           <p className="text-muted-foreground leading-relaxed">{caseStudy.problem}</p>
@@ -159,6 +165,41 @@ export default async function ProjectPage({
             ))}
           </ul>
         </Section>
+
+        {caseStudy.deepDive && (
+          <Section title={caseStudy.deepDive.title}>
+            <p className="text-muted-foreground leading-relaxed">
+              {caseStudy.deepDive.intro}
+            </p>
+            <div className="mt-6 space-y-7">
+              {caseStudy.deepDive.blocks.map((block, i) => (
+                <div key={i}>
+                  <h3 className="text-sm font-medium text-foreground">{block.heading}</h3>
+                  <p className="mt-1.5 text-muted-foreground leading-relaxed">{block.body}</p>
+                  {block.formula && (
+                    <pre className="mt-3 overflow-x-auto rounded-lg border border-border/60 bg-muted/40 p-4 font-mono text-xs leading-relaxed text-foreground/80">
+                      {block.formula}
+                    </pre>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Section>
+        )}
+
+        {caseStudy.video && (
+          <Section title="Demo en video">
+            <video
+              controls
+              preload="metadata"
+              playsInline
+              className="w-full rounded-xl border border-border/60 bg-muted"
+            >
+              <source src={`../../portfolio/${caseStudy.video}`} type="video/mp4" />
+              Tu navegador no puede reproducir el video.
+            </video>
+          </Section>
+        )}
 
         <div className="pt-10 border-t border-border/50">
           <Link

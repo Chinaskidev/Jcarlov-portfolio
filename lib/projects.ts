@@ -8,7 +8,17 @@
 // volumen procesado). Búscalos marcados con "TODO(jc)" y reemplázalos por datos reales:
 // una métrica concreta es la señal #1 de credibilidad ante un reclutador o cliente.
 
+/** Un paso de la profundización técnica: prosa breve + una fórmula opcional en monoespaciado. */
+export type DeepDiveBlock = {
+  heading: string
+  body: string
+  /** Fórmula o bloque de cálculo, se renderiza tal cual en monoespaciado. */
+  formula?: string
+}
+
 export type CaseStudy = {
+  /** Apertura editorial opcional, en la voz del autor (se renderiza en cursiva, antes del problema). */
+  lead?: string
   /** El dolor real que motivó el proyecto: qué problema, para quién. */
   problem: string
   /** Qué hiciste tú (clave cuando fue en equipo / con Yultic). */
@@ -17,6 +27,20 @@ export type CaseStudy = {
   solution: string[]
   /** Resultado / impacto. Idealmente con métricas. */
   impact: string[]
+  /**
+   * Profundización técnica opcional (cómo funciona por dentro). Para perfil técnico:
+   * demuestra criterio de ingeniería, no solo "usé IA". Distíl­alo — no pegues un ensayo.
+   */
+  deepDive?: {
+    title: string
+    intro: string
+    blocks: DeepDiveBlock[]
+  }
+  /**
+   * Demo en video opcional: nombre del archivo en `public/portfolio/` (MP4 H.264).
+   * Comprímelo antes de commitearlo — Git guarda los binarios en el historial para siempre.
+   */
+  video?: string
 }
 
 export type Project = {
@@ -42,14 +66,16 @@ export const projects: Project[] = [
     tagline: "Analiza CVs y los puntúa contra cada puesto, 100% local.",
     description:
       "Sistema de reclutamiento potenciado por IA que analiza currículums y los compara con los puestos definidos por cada cliente, para encontrar al talento ideal de forma más rápida, objetiva y privada.",
-    tags: ["Python", "FastAPI", "PostgreSQL", "Ollama", "Embeddings", "LLM local"],
-    image: "ixtli-logo.png",
+    tags: ["Python", "FastAPI", "PostgreSQL", "Ollama", "Embeddings", "LLM local", "Ministral 3 8B"],
+    image: "ixtli-logo-chico.png",
     imageContain: true,
     github: "https://github.com/Chinaskidev/agent-resume-analyzer",
     featured: true,
     caseStudy: {
+      lead:
+        "Hoy en día el auge de la IA se vive en el día a día, y los modelos pequeños pueden correr localmente, sin usar una supercomputadora. En este proyecto me pude dar cuenta de que los LLM pequeños ya son suficientes para esto.",
       problem:
-        "Filtrar candidatos es lento y subjetivo: los equipos revisan cientos de CVs a mano, el criterio cambia entre revisores, y los datos sensibles de los postulantes terminan en servicios de terceros. Las empresas necesitan cribar talento rápido y de forma consistente, sin exponer información personal.",
+        "Filtrar candidatos es lento y subjetivo: los equipos revisan cientos de CVs a mano, el criterio cambia entre revisores, y los datos sensibles de los postulantes terminan en servicios como OpenAI y terceros. Las empresas necesitan cribar talento rápido y de forma consistente, sin exponer información personal.",
       role:
         "Diseño y construcción del sistema completo: backend en FastAPI, el pipeline de IA (extracción, embeddings y LLM), el modelo de puntaje híbrido y la persistencia multi-tenant.",
       solution: [
@@ -63,8 +89,62 @@ export const projects: Project[] = [
         "Privacidad por diseño: el procesamiento es 100% local, los CVs nunca salen de la infraestructura del cliente.",
         "Consistencia: un puntaje calibrado y reproducible reemplaza el criterio subjetivo de cada revisor.",
         "Costo cero por consulta al no depender de APIs de IA en la nube.",
-        // TODO(jc): nº de CVs procesados / tiempo por CV vs. revisión manual / clientes usándolo.
+        "El modelo local es el trade-off por la privacidad: ~6 min por CV contra un puesto. No es veloz, pero corre desatendido en lote — 25 CVs en ~2.5 h, 300 CVs en ~30 h de cómputo que la máquina hace sola (de noche o en segundo plano), sin que nadie lea un CV a mano.",
+        "Rompe el cuello de botella real, que es el humano: en vez de leer cientos de CVs —días de lectura fatigante e inconsistente— la persona recibe una lista ya rankeada, con puntaje 0–10 y justificación por candidato, y se concentra solo en los mejores.",
+        "Cada análisis queda guardado (raw_score, puntaje_llm, match_score): con datos acumulados se pueden recalibrar el piso/techo y los pesos del puntaje con distribuciones reales, en vez de a ojo.",
+        // TODO(jc): nº real de clientes/consultoras usándolo y volumen de CVs procesados en producción (telemetría, no cálculo — no inventar).
       ],
+      deepDive: {
+        title: "La matemática detrás del match",
+        intro:
+          "El match no es una caja negra: es una cadena de operaciones deterministas combinada con un LLM, con pesos elegidos a propósito. Así funciona por dentro.",
+        blocks: [
+          {
+            heading: "1. Embeddings: del texto a un vector",
+            body:
+              "El modelo paraphrase-multilingual-MiniLM-L12-v2 convierte cualquier texto en un vector de 384 dimensiones. Ninguna dimensión significa algo por sí sola; el modelo fue entrenado para que textos con significado parecido apunten en direcciones parecidas. «Desarrollé APIs en Python» y «construí servicios backend con FastAPI» casi no comparten palabras, pero sus vectores quedan casi paralelos. Eso es lo semántico: cercanía de significado, no de palabras coincidentes.",
+            formula: "E(texto) → v ∈ ℝ³⁸⁴",
+          },
+          {
+            heading: "2. Similitud del coseno: el ángulo, no las palabras",
+            body:
+              "Dos textos se comparan por el ángulo entre sus vectores: 1.0 = mismo significado, 0 = sin relación. Se usa coseno y no distancia euclidiana a propósito: un CV de 3 páginas produce un vector más «cargado» que una lista de 5 habilidades, y la euclidiana castigaría esa diferencia de tamaño. Al coseno solo le importa hacia dónde apunta el vector, no cuánto mide.",
+            formula: "cos(θ) = (A · B) / (‖A‖ · ‖B‖)",
+          },
+          {
+            heading: "3. Fragmentación y el truco del máximo",
+            body:
+              "El modelo trunca su entrada a ~128 tokens, así que el CV se corta en ventanas de 150 palabras con 30 de solape (el solape evita partir una frase clave justo en el borde de dos fragmentos). Para cada componente del puesto, el score es el máximo sobre todos los fragmentos, no el promedio: un CV legítimo tiene secciones irrelevantes (educación, hobbies) que arrastrarían el promedio hacia abajo. La pregunta correcta no es «¿todo el CV habla del puesto?» sino «¿existe alguna parte que matchee fuerte?».",
+            formula: "s_componente = máx( cos(E(Fᵢ), E(componente)) )   para i = 1..n",
+          },
+          {
+            heading: "4. Promedio ponderado (con renormalización)",
+            body:
+              "Los tres componentes pesan distinto: funciones 50% (describen el trabajo real del día a día), habilidades 30%, perfil 20% (suele ser texto más abstracto). Si un componente viene vacío se excluye y se divide entre los pesos restantes — sin esa renormalización, un puesto sin «perfil» cargado quedaría injustamente con un techo de 0.8.",
+            formula: "S_raw = (0.5·s_func + 0.3·s_hab + 0.2·s_perfil) / Σ pesos válidos",
+          },
+          {
+            heading: "5. Calibración: del coseno crudo a la escala 0–10",
+            body:
+              "Observación empírica clave del proyecto: con este modelo y este esquema de fragmentos, los cosenos reales nunca recorren todo el [0, 1] — viven en ~[0.25, 0.65]. Un CV sin relación da ~0.25 (el «ruido de fondo» del lenguaje: todo texto se parece algo a todo texto); un match fortísimo da ~0.65. Se estira ese rango real a 0–10 con un mapeo lineal recortado. Sin calibrar, todos los candidatos parecerían «mediocres entre 2.5 y 6.5» y el cliente no vería diferencias útiles.",
+            formula: "P_sem = clamp( (S_raw − 0.25) / 0.40 , 0, 1 ) · 10",
+          },
+          {
+            heading: "6. El híbrido: dos mediciones ortogonales",
+            body:
+              "El semántico tiene un punto ciego: mide afinidad de rubro, no calidad — un data scientist senior y uno flojo dan cosenos casi iguales porque hablan del mismo tema. Por eso entra el LLM, que sí lee y califica. Las dos señales son casi ortogonales: una responde «¿es del rubro?», la otra «¿qué tan bueno es?». Además, el semántico es el ancla anti-alucinación: es matemática determinista que el LLM no puede inflar, así que si se entusiasma con un CV del rubro equivocado, el 40% semántico lo frena. (Si el LLM no devuelve una puntuación parseable, P_final = P_sem.)",
+            formula: "P_final = 0.4 · P_sem + 0.6 · P_llm",
+          },
+          {
+            heading: "7. Ejemplo de punta a punta",
+            body:
+              "Un CV de 390 palabras → 3 fragmentos, contra un puesto con sus 3 componentes. Tomando el máximo por componente (funciones 0.58, habilidades 0.52, perfil 0.44), el LLM leyó el CV y devolvió 8/10. El resultado: 7.6 → «Promedio Alto».",
+            formula:
+              "S_raw   = 0.5·0.58 + 0.3·0.52 + 0.2·0.44 = 0.53\nP_sem   = (0.53 − 0.25) / 0.40 · 10        = 7.0\nP_final = 0.4·7.0 + 0.6·8.0                = 7.6  → «Promedio Alto»",
+          },
+        ],
+      },
+      video: "ixtli-demo.mp4",
     },
   },
   {
