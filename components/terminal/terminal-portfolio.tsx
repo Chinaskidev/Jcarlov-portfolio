@@ -19,7 +19,7 @@ export function TerminalPortfolio() {
     document.body.style.overflow = "hidden"
 
     const cleanup = startTerminal({
-      onGui: () => router.push("/portfolio"),
+      onGui: () => router.push("/"),
     })
 
     return () => {
@@ -40,7 +40,7 @@ export function TerminalPortfolio() {
       <button
         id="gui-link"
         type="button"
-        onClick={() => router.push("/portfolio")}
+        onClick={() => router.push("/")}
         aria-label="Ver versión visual del portafolio"
       >
         [ modo visual ]

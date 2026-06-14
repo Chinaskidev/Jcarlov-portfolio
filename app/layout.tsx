@@ -27,7 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 // link-previews necesitan URLs absolutas: no resuelven rutas relativas ni el basePath.
 const SITE_URL = "https://chinaskidev.github.io/Jcarlov-portfolio"
 const OG_IMAGE = `${SITE_URL}/og-image.png`
-const OG_DESCRIPTION = "Desarrollo de software, A.I. Portafolio en formato terminal."
+const OG_DESCRIPTION = "Desarrollo de software e Inteligencia Artificial. Proyectos en IA, consultoría y Web3."
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
