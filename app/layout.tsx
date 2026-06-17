@@ -1,9 +1,9 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display, DM_Sans, JetBrains_Mono } from "next/font/google"
+import { Cinzel, DM_Sans, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
-const playfair = Playfair_Display({
+const cinzel = Cinzel({
   subsets: ["latin"],
   variable: "--font-display-family",
   display: "swap",
@@ -76,7 +76,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${playfair.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans antialiased grain-overlay`}>
+      <body className={`${cinzel.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans antialiased grain-overlay`}>
         {children}
         {CLOUDFLARE_ANALYTICS_TOKEN && (
           <script

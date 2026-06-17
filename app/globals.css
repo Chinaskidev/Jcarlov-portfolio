@@ -83,7 +83,7 @@
 @theme inline {
   --font-sans: var(--font-body), "DM Sans", system-ui, sans-serif;
   --font-mono: "DM Mono", "Geist Mono", monospace;
-  --font-display: var(--font-display-family), "Playfair Display", Georgia, serif;
+  --font-display: var(--font-display-family), "Cinzel", Georgia, serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

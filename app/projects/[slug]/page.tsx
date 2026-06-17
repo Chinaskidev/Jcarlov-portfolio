@@ -89,7 +89,7 @@ export default async function ProjectPage({
         </Link>
 
         <header className="mt-8">
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
+          <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
             {project.title}
           </h1>
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed">

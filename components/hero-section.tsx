@@ -9,7 +9,7 @@ export function HeroSection() {
         className="w-28 h-28 rounded-full object-cover border border-border mb-8"
       />
 
-      <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
+      <h1 className="font-display text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
         Hola! Soy Juan Carlos Vásquez,{" "}
         
       </h1>
