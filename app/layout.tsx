@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display, DM_Sans, JetBrains_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 const playfair = Playfair_Display({
@@ -28,6 +27,11 @@ const jetbrainsMono = JetBrains_Mono({
 const SITE_URL = "https://chinaskidev.github.io/Jcarlov-portfolio"
 const OG_IMAGE = `${SITE_URL}/og-image.png`
 const OG_DESCRIPTION = "Desarrollo de software e Inteligencia Artificial. Proyectos en IA, consultoría y Web3."
+
+// Cloudflare Web Analytics (gratis, sin cookies, sin dominio propio).
+// Pega aquí el token que te da Cloudflare en: Web Analytics → Add a site → modo JS snippet.
+// Mientras esté vacío, el script no se carga ni se registran visitas.
+const CLOUDFLARE_ANALYTICS_TOKEN = "0aa2b7c86ace45c4b76622688d2f5783"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -74,7 +78,13 @@ export default function RootLayout({
       </head>
       <body className={`${playfair.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans antialiased grain-overlay`}>
         {children}
-        <Analytics />
+        {CLOUDFLARE_ANALYTICS_TOKEN && (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: CLOUDFLARE_ANALYTICS_TOKEN })}
+          />
+        )}
       </body>
     </html>
   )
