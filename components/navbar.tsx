@@ -41,6 +41,12 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
+          <Link
+            href="/relato"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Relato
+          </Link>
           <a
             href="https://github.com/Chinaskidev"
             target="_blank"
@@ -81,6 +87,13 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
+          <Link
+            href="/relato"
+            onClick={() => setIsOpen(false)}
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Relato
+          </Link>
           <Link
             href="/terminal"
             onClick={() => setIsOpen(false)}
