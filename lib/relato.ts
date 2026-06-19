@@ -40,8 +40,8 @@ export type Relato = {
 export const relato: Relato = {
   title: "La Epopeya de Pepón",
   tagline: "No elegí esta aventura. Me ocurrió.",
-  autor: "Juan Carlos Vásquez",
-  // cover: "relato-portada.jpg", // ← descomentá cuando subas la portada a public/portfolio/
+  autor: "JCarloV",
+  cover: "relato-portada.jpg",
 
   // Fragmento gratis. Es solo la apertura del Capítulo 1 — corta a propósito en un
   // momento de gancho. NO pegues el capítulo entero: mostrar de más mata la venta.
@@ -68,11 +68,11 @@ export const relato: Relato = {
   ],
 
   cta: {
-    url: "", // ← pegá acá la URL de Gumroad cuando la tengas; hasta entonces sale "próximamente"
+    url: "https://jcarlov.gumroad.com/l/jhcxcc",
     label: "Seguir leyendo / descargar",
-    price: "TODO(jc): $ USD",
-    formats: ["PDF", "EPUB"],
-    pages: "50+ páginas",
+    price: "$10 USD",
+    formats: ["PDF"],
+    pages: "40+ páginas",
     notifyEmail: "juangreen17@gmail.com",
   },
 }
