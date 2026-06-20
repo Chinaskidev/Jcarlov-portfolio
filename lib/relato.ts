@@ -49,20 +49,11 @@ export const relato: Relato = {
 
   preview: [
     {
-      heading: "Capítulo 1",
+      heading: "Descripción",
       paragraphs: [
-        "Todo viaje tiene un punto de quiebre: el momento exacto en que la aventura deja de ser una elección y empieza a ocurrirte. El mío fue una carretera sin nombre en Ecuador, a las tres de la tarde. Lo sé porque en el camino uno desaprende el reloj y aprende el sol: dónde está, cómo cae sobre el asfalto, qué hora marca sin marcarla. Eran las tres cuando vi a Salvador volar por encima del manillar.",
-        "Éramos tres salvadoreños pedaleando por Latinoamérica: José «Chepe», Salvador y yo. Ellos eran hermanos —los hermanos Benítez—; yo era el agregado, el que conocieron en Ibarra, al norte de Ecuador, de la manera en que se encuentran los ciclistas de ruta: en una estación de bomberos. En medio continente, los cuarteles son el refugio no escrito del viajero —un patio, un grifo, un techo—, y a esa hospitalidad le debo más de una noche. Yo armaba la carpa en el patio cuando los vi: dos tipos ya instalados, con las piernas tostadas y todos flacos. Eran salvadoreños.",
-        "—Ey, ¿qué onda? —les dije.",
-        "Se quedaron viéndome, sorprendidos y contentos a la vez.",
-        "—¿Qué onda? ¿De dónde sos?",
-        "—De El Salvador.",
-        "Salieron de la carpa de un salto.",
-        "—¡Ma, no jodás! ¿En serio? ¡Nosotros también!",
-        "Yo también me quedé pasmado.",
-        "—¡Puya, qué vergón, maje!",
-        "Nos abrazamos. No me topaba con un salvadoreño desde hacía meses, quizás un año. Fue increíble. Hasta esa noche creí ser el único salvadoreño pedaleando Latinoamérica.",
-        "Llevábamos tres meses juntos. Tres meses de carreteras andinas, de subidas que te arrancaban los pulmones, de noches armando carpas bajo la lluvia y el frío, de compartir lo poco que teníamos sin pensarlo dos veces. Cuando viajas así, la confianza no se construye con palabras. Se construye con kilómetros.",
+        "Dicen que los grandes viajes te cambian; a mí, la selva amazónica me desmanteló. Pasé más de siete años pedaleando el mundo, pero mi verdadero bautismo de fuego llegó cuando apenas llevaba un año y meses lejos de casa.",
+        "Todo se torció en una carretera sin nombre en Ecuador.Un accidente me separó de mis compañeros de ruta y me vi arrastrado por la inmensidad del río Napo. Terminé abandonado en una orilla, perdido en un laberinto verde sin caminos, arrastrando una bicicleta inútil y con la certeza absoluta de que iba a morir ahí, solo y en el fango.",
+        "Pero la selva tiene un sentido del humor retorcido. Me rescataron los Kichwas, una comunidad milenaria que me desnudó de mi arrogancia de viajero. Me sentaron a su mesa y me enseñaron que a veces, para dejar de estar perdido, primero tienes que perderlo absolutamente todo."
       ],
     },
   ],

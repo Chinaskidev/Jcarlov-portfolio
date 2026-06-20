@@ -34,7 +34,7 @@ function Cta() {
 
       <p className="mt-3 text-muted-foreground leading-relaxed">
         {hasStore
-          ? "Leíste el fragmento de muestra. La obra completa está disponible para leer online y descargar."
+          ? "Leíste una descripción. La obra completa está disponible para leer online y descargar."
           : "Acabás de leer un fragmento. Estoy terminando de escribirlo — dejá tu correo y te aviso apenas salga."}
       </p>
 
