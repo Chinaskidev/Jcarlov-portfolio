@@ -61,7 +61,7 @@ export const relato: Relato = {
   cta: {
     url: "https://jcarlov.gumroad.com/l/jhcxcc",
     label: "Seguir leyendo / descargar",
-    price: "$10 USD",
+    price: "$5.00 USD",
     formats: ["PDF"],
     pages: "40+ páginas",
     notifyEmail: "juangreen17@gmail.com",
