@@ -3,7 +3,7 @@
 // Los proyectos `featured: true` tienen un `caseStudy` completo y su propia página
 // en /projects/[slug]. El resto se muestra en la lista compacta "Más proyectos".
 //
-// ⚠️ MÉTRICAS: los borradores de abajo se redactaron desde los READMEs de los repos.
+//  MÉTRICAS: los borradores de abajo se redactaron desde los READMEs de los repos.
 // Las afirmaciones son verdaderas, pero faltan NÚMEROS DUROS (tiempos, %, nº de clientes,
 // volumen procesado). Búscalos marcados con "TODO(jc)" y reemplázalos por datos reales:
 // una métrica concreta es la señal #1 de credibilidad ante un reclutador o cliente.
@@ -67,7 +67,7 @@ export const projects: Project[] = [
     description:
       "Sistema de reclutamiento potenciado por IA que analiza currículums y los compara con los puestos definidos por cada cliente, para encontrar al talento ideal de forma más rápida, objetiva y privada.",
     tags: ["Python", "FastAPI", "PostgreSQL", "Ollama", "Embeddings", "LLM local", "Ministral 3 8B"],
-    image: "ixtli-logo-chico.png",
+    image: "ixtli.png",
     imageContain: true,
     github: "https://github.com/Chinaskidev/agent-resume-analyzer",
     featured: true,

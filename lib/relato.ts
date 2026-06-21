@@ -38,7 +38,7 @@ export type Relato = {
 }
 
 export const relato: Relato = {
-  title: "La Epopeya de Pepón",
+  title: "Antes de los Siete Años",
   tagline: "No elegí esta aventura. Me ocurrió.",
   autor: "JCarloV",
   cover: "relato-portada.jpg",
@@ -59,7 +59,7 @@ export const relato: Relato = {
   ],
 
   cta: {
-    url: "https://jcarlov.gumroad.com/l/jhcxcc",
+    url: "https://jcarlov.gumroad.com/l/sivar",
     label: "Seguir leyendo / descargar",
     price: "$5.00 USD",
     formats: ["PDF"],

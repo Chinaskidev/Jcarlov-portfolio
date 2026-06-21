@@ -20,10 +20,10 @@ export function HeroSection() {
          Actualmente soy fundandor de {" "}
         <span className="text-foreground">Yultic</span> y co-fundandor de{" "}
         <span className="text-foreground">Skinner</span>.
-        Esta ultima fue mi mayor escuela, donde aprendí a construir productos digitales desde cero, 
-        liderar equipos y entender las necesidades del mercado.
+        Esta ultima ha sido mi mayor escuela, donde he aprendido a construir productos digitales desde cero, 
+        liderar al equipo y entender las necesidades del mercado.
         Y es asi como he llegado a donde estoy hoy, con {" "} <span className="text-foreground">Yultic</span>, 
-        mi proyecto actual, donde aplico todo lo que he aprendido 
+        y {" "} <span className="text-foreground">Skinner</span> y en ambas aplico todo lo que he aprendido 
         para crear soluciones innovadoras y de impacto para Pymes.
       </p>
 
