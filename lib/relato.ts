@@ -38,7 +38,7 @@ export type Relato = {
 }
 
 export const relato: Relato = {
-  title: "Antes de los Siete Años",
+  title: "FRENTE",
   tagline: "No elegí esta aventura. Me ocurrió.",
   autor: "JCarloV",
   cover: "relato-portada.jpg",
