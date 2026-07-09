@@ -41,7 +41,7 @@ export const relato: Relato = {
   title: "FRENTE",
   tagline: "No elegí esta aventura. Me ocurrió.",
   autor: "JCarloV",
-  cover: "relato-portada.jpg",
+  cover: "relato-portada.webp",
 
   // Fragmento gratis. Es solo la apertura del Capítulo 1 — corta a propósito en un
   // momento de gancho. NO pegues el capítulo entero: mostrar de más mata la venta.

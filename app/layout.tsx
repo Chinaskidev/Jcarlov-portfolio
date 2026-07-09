@@ -24,7 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 // URL absoluta del sitio en GitHub Pages (incluye basePath). Los crawlers y
 // link-previews necesitan URLs absolutas: no resuelven rutas relativas ni el basePath.
-const SITE_URL = "https://chinaskidev.github.io/Jcarlov-portfolio"
+const SITE_URL = "https://jcarlov.yultic.dev"
 const OG_IMAGE = `${SITE_URL}/og-image.png`
 const OG_DESCRIPTION = "Desarrollo de software e Inteligencia Artificial. Proyectos en IA, consultoría y Web3."
 

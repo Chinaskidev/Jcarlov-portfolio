@@ -67,7 +67,7 @@ export const projects: Project[] = [
     description:
       "Sistema de reclutamiento potenciado por IA que analiza currículums y los compara con los puestos definidos por cada cliente, para encontrar al talento ideal de forma más rápida, objetiva y privada.",
     tags: ["Python", "FastAPI", "PostgreSQL", "Ollama", "Embeddings", "LLM local", "Ministral 3 8B"],
-    image: "ixtli.png",
+    image: "ixtli.webp",
     imageContain: true,
     github: "https://github.com/Chinaskidev/agent-resume-analyzer",
     featured: true,
@@ -154,7 +154,7 @@ export const projects: Project[] = [
     description:
       "Agente de IA que conversa con un prospecto, entiende qué necesita, capta el lead y agenda una cita con un asesor humano. Corre sobre un LLM 100% local vía Ollama: sin nube, sin APIs externas, los datos nunca salen de la máquina.",
     tags: ["TypeScript", "Ollama", "LLM local", "Agentes IA"],
-    image: "agente.png",
+    image: "agente.webp",
     github: "https://github.com/Chinaskidev/Run-an-LLM-Locally-.",
     featured: true,
     caseStudy: {
@@ -184,7 +184,7 @@ export const projects: Project[] = [
     description:
       "Plataforma de Agentes como Servicio que automatiza trámites legales y tributarios para contadores en El Salvador: gestión multi-tenant, alertas de vencimientos, calendario de obligaciones fiscales, generación de documentos legales y un agente de IA conversacional.",
     tags: ["NestJS", "Next.js", "TypeScript", "Prisma", "PostgreSQL", "Anthropic SDK"],
-    image: "maticartoon.png",
+    image: "maticartoon.webp",
     imageContain: true,
     github: "https://github.com/yultic/S.I.P.A.T-",
     featured: true,
@@ -212,7 +212,7 @@ export const projects: Project[] = [
     description:
       "Sistema de predicción de ventas para pymes del sector de alimento para mascotas. El modelo principal, basado en XGBoost para series temporales, alcanza ~77 % de precisión (R²).",
     tags: ["Python", "FastAPI", "XGBoost", "MLflow", "Docker", "Next.js"],
-    image: "petshop.jpg",
+    image: "petshop.webp",
     github: "https://github.com/yultic/Petshop-dashboard",
     demo: "https://github.com/yultic/Petshop-dashboard",
     featured: true,
@@ -240,7 +240,7 @@ export const projects: Project[] = [
     description:
       "Software de gestión administrativa inteligente que combina IA avanzada con gestión de talento humano para optimizar procesos y fortalecer la infraestructura tecnológica de las organizaciones.",
     tags: ["Python", "Transformers", "FastAPI", "Docker", "Nest.js", "Next.js"],
-    image: "skinner-logo.png",
+    image: "skinner-logo.webp",
     imageContain: true,
     github: "https://github.com/Skinner-SAS-de-CV/FastApi-Enpoints",
     demo: "https://www.skinnersv.net/companies",
@@ -270,7 +270,7 @@ export const projects: Project[] = [
     description:
       "Pedal de fuzz/distorsión de alta ganancia implementado como procesador de señal digital (DSP). Núcleo en C++ portable a hardware (Daisy Seed, Teensy) y plugin de audio vía JUCE.",
     tags: ["C++", "Faust", "JUCE", "DSP"],
-    image: "Sunn-O))).webp",
+    image: "sunn-o.webp",
     github: "https://github.com/Chinaskidev/Doom-Fuzz",
   },
   {
@@ -281,8 +281,8 @@ export const projects: Project[] = [
       "Aplicación web que permite contratar y agendar sesiones de bienestar mental de forma autónoma: selección de sesión, pago y confirmación con enlace de cita, sin intermediarios.",
     tags: ["TypeScript", "Tailwind CSS", "shadcn/ui"],
     image: "LOGO_2.png",
-    github: "https://github.com/yultic/your-mindz",
-    demo: "https://your-mindz-web.vercel.app/",
+    github: "",
+    demo: "https://yourmindzhealth.com/",
   },
   {
     slug: "etl-clima",
@@ -291,7 +291,7 @@ export const projects: Project[] = [
     description:
       "Pipeline ETL completo de datos meteorológicos que automatiza extracción, transformación y carga del clima para El Salvador con Apache Airflow, Docker y Google Cloud.",
     tags: ["Apache Airflow", "Python", "Google Cloud", "PostgreSQL"],
-    image: "lluvias.jpg",
+    image: "lluvias.webp",
     github: "https://github.com/Chinaskidev/ETL-Clima-ElSalvador",
     demo: "https://github.com/Chinaskidev/ETL-Clima-ElSalvador",
   },
@@ -302,7 +302,7 @@ export const projects: Project[] = [
     description:
       "Agente de IA basado en ElizaOS, diseñado para operar en X (Twitter) y generar conversaciones especializadas sobre Blockchain y Web3.",
     tags: ["TypeScript", "PLpgSQL", "Shell", "Docker"],
-    image: "eliza_banner.jpg",
+    image: "eliza_banner.webp",
     github: "https://github.com/Chinaskidev/Agente-en-X-ElizaOs",
     demo: "https://github.com/Chinaskidev/Agente-en-X-ElizaOs",
   },
@@ -313,7 +313,7 @@ export const projects: Project[] = [
     description:
       "Proyecto que integra contratos inteligentes de Ethereum con una interfaz web para crear y gestionar NFTs, con conexión de wallets.",
     tags: ["Next.js", "TypeScript", "Solidity", "IPFS"],
-    image: "sivar.png",
+    image: "sivar.webp",
     github: "https://github.com/Chinaskidev/Sivar-ETH",
     demo: "https://github.com/Chinaskidev/Sivar-ETH",
   },
@@ -325,7 +325,7 @@ export const projects: Project[] = [
       "Plataforma web moderna para digitalizar y posicionar un negocio de apicultura: información institucional, catálogo de productos y una arquitectura frontend limpia y escalable.",
     tags: ["TypeScript", "Tailwind CSS", "shadcn/ui"],
     image: "raymapu2.png",
-    github: "https://github.com/yultic/Raymapu-web",
+    github: "",
     demo: "https://raymapu.cl/",
   },
 ]

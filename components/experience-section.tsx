@@ -7,42 +7,52 @@ const experiences = [
     description:
       "Fundador de un estudio de desarrollo de productos digitales y soluciones inteligentes. Diseño arquitecturas escalables, desarrollo aplicaciones full-stack e implemento soluciones basadas en IA.",
   },
-    {
+  {
     title: "Co-Founder & AI Product Engineer",
     company: "Skinner",
     period: "2026-Presente",
     description:
       "Co-fundador de una plataforma enfocada en análisis inteligente de CVs y optimización de procesos de reclutamiento. Lidero la arquitectura full-stack, la integración de NLP, el backend en Python (FastAPI) y el frontend en TypeScript.",
   },
+  {
+    title: "Análisis de Auditoría Forense de la Seguridad Tecnológica",
+    company: "Escuela Superior de Innovación y Tecnología (ESIT)",
+    period: "08/06/2026",
+    description:
+      "Aplicar técnicas de informática forense para identificar, adquirir, preservar, analizar y presentar datos válidos como evidencias digitales en incidentes de seguridad o cibercrímenes.",
+  },
 
   {
-    title: "Especialización en Ingeniería de Software & IA",
-    company: "Aprendizaje independiente y proyectos reales",
-    period: "Continuo",
-    description:
-      "Especialización práctica en Python, TypeScript, Blockchain, NLP y arquitecturas modernas, construyendo productos reales y desplegando en producción.",
-  },
-  {
     title: "Curso de Ciberseguridad Preventiva",
-    company: "",
-    period: "13/04/2026",
+    company: "Platzy",
+    period: "13/04/2025",
     description:
       "Prevención, hardening y buenas prácticas de defensa en ciberseguridad.",
   },
+
   {
     title: "Ciberseguridad y Hacking Ético",
-    company: "",
-    period: "10/04/2026",
+    company: "Platzy",
+    period: "10/03/2025",
     description:
       "Hacking ético y fundamentos de pruebas de penetración (pentesting).",
   },
   {
     title: "Introducción a la Seguridad de Smart Contracts",
-    company: "",
-    period: "20/12/2025",
+    company: "Kipu ETH",
+    period: "20/12/2024",
     description:
       "Seguridad y vulnerabilidades comunes en contratos inteligentes (Web3).",
   },
+
+  {
+    title: "Ciencia de Datos",
+    company: "Bootcamp Henry",
+    period: "12/03/2024",
+    description:
+      "Python, análisis de datos, estadística aplicada y fundamentos de Machine Learning.",
+  },
+
   {
     title: "Ingeniería en Agroecología",
     company: "Universidad Luterana Salvadoreña",
